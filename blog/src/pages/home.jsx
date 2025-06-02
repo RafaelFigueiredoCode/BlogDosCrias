@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import userApi from '../apizes/userApi';   
-import postApi from '../apizes/postApi';   
+import postApi from '../apizes/postApi';
+
 
 function Home() {
   const [posts, setPosts] = useState([]); 
