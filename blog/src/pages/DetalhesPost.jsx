@@ -10,10 +10,10 @@ function DetalhesPost() {
 
   useEffect(() => {
     async function fetchData() {
-      const postRes = await api.get(`/posts/${id}`);
+      const postRes = await userApi.get(`/posts/${id}`);
       setPost(postRes.data);
 
-      const userRes = await api.get(`/users/${postRes.data.userId}`);
+      const userRes = await userApi.get(`/users/${postRes.data.userId}`);
       setAuthor(userRes.data);
     }
 
