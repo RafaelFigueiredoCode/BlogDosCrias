@@ -1,64 +1,63 @@
-/* Container centralizado e com espaçamento */
 .container {
-  max-width: 900px;
-  margin: 50px auto;
-  padding: 0 20px;
+  width: 100%;
+  max-width: 100%;
+  padding: 40px 30px;
+  box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f7f9fc;
+  background-color: #f0f2f5;
   min-height: 100vh;
 }
 
-/* Título centralizado */
+
 h1 {
-  text-align: center;
-  color: #222;
-  margin-bottom: 40px;
   font-weight: 700;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
+  color: #333333;
+  margin-bottom: 40px;
+  text-align: center;
 }
 
-/* Grid para cards */
 .posts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  width: 100%;
 }
 
-/* Card de cada post */
 .post-card {
-  background: #fff;
+  background-color: #fff;
   border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-  padding: 25px 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 24px 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
   text-decoration: none;
-  color: inherit;
+  color: #333;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 180px;
+  height: 220px;
   cursor: pointer;
 }
 
 .post-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  transform: translateY(-8px);
 }
 
-/* Título do post */
 .post-card h3 {
-  margin: 0 0 15px 0;
+  font-size: 1.4rem;
   font-weight: 700;
-  font-size: 1.25rem;
-  color: #0077cc;
+  margin-bottom: 16px;
+  color: black;
   line-height: 1.3;
+  flex-grow: 1;
 }
 
-/* Autor */
 .post-card p {
   margin: 0;
-  font-size: 0.95rem;
-  color: #555;
   font-style: italic;
+  font-size: 1rem;
+  color: #555;
   align-self: flex-start;
 }
+
