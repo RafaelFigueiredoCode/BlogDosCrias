@@ -27,19 +27,19 @@ function Home() {
     return user ? user.name : 'Desconhecido';
   };
 
-  return (
-    <div className='tudo'>
-      <h1>Posts</h1>
+return (
+  <div className="container">
+    <h1>Posts</h1>
+    <div className="posts-grid">
       {posts.map((post) => (
-        <div key={post.id} style={{ marginBottom: '20px' }}>
-          <Link to={`/post/${post.id}`}>
-            <h3>{post.title}</h3>
-          </Link>
+        <Link to={`/post/${post.id}`} key={post.id} className="post-card">
+          <h3>{post.title}</h3>
           <p>Autor: {getAuthorName(post.userId)}</p>
-        </div>
+        </Link>
       ))}
     </div>
-  );
+  </div>
+);
 }
 
 export default Home;  
