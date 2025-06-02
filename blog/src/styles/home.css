@@ -1,0 +1,64 @@
+/* Container centralizado e com espaçamento */
+.container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f7f9fc;
+  min-height: 100vh;
+}
+
+/* Título centralizado */
+h1 {
+  text-align: center;
+  color: #222;
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+/* Grid para cards */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* Card de cada post */
+.post-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  padding: 25px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 180px;
+  cursor: pointer;
+}
+
+.post-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Título do post */
+.post-card h3 {
+  margin: 0 0 15px 0;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #0077cc;
+  line-height: 1.3;
+}
+
+/* Autor */
+.post-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #555;
+  font-style: italic;
+  align-self: flex-start;
+}
