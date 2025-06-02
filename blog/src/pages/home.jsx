@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import userApi from '../apizes/userApi';  
-import postApi from '../apizes/postApi';   
+import postApi from '../apizes/postApi';
+import "../styles/home.css";
 
 function Home() {
   const [posts, setPosts] = useState([]); 
@@ -27,7 +28,7 @@ function Home() {
   };
 
   return (
-    <div>
+    <div className='tudo'>
       <h1>Posts</h1>
       {posts.map((post) => (
         <div key={post.id} style={{ marginBottom: '20px' }}>

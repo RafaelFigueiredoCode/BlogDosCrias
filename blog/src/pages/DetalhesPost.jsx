@@ -27,8 +27,6 @@ function DetalhesPost() {
       <h2>{post.title}</h2>
       <p>{post.body}</p>
       <hr />
-      <p><strong>Autor:</strong> {author.name}</p>
-      <p><strong>Email:</strong> {author.email}</p>
     </div>
   );
 }
