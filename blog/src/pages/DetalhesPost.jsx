@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import userApi from '../apizes/userApi';
 import postApi from '../apizes/postApi';
+import "../styles/detalhesPost.css";
 
 function DetalhesPost() {
   const { id } = useParams();
@@ -23,10 +24,11 @@ function DetalhesPost() {
   if (!post || !author) return <p>Carregando...</p>;
 
   return (
-    <div>
-      <h2>{post.title}</h2>
-      <p>{post.body}</p>
+    <div className="detalhe-container">
+      <h2 className="detalhe-title">{post.title}</h2>
+      <p className="detalhe-body">{post.body}</p>
       <hr />
+      <p className="detalhe-author">Escrito por: {author.name}</p>
     </div>
   );
 }
