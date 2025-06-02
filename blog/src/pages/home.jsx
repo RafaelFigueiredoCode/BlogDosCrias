@@ -1,37 +1,35 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import userApi from '../apizes/userApi';   // pra usuários
-import postApi from '../apizes/postApi';   // pra posts
+import userApi from '../apizes/userApi';  
+import postApi from '../apizes/postApi';   
 
 function Home() {
-  const [blog, setBlog] = useState([]); // já inicializa como array
+  const [posts, setPosts] = useState([]); 
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    async function fetchData() {
       try {
-        // Atenção: JSONPlaceholder usa endpoint '/posts' e '/users' (no plural)
         const postsResponse = await postApi.get('/posts');
         const usersResponse = await userApi.get('/users');
-
-        setBlog(postsResponse.data);
+        setPosts(postsResponse.data);
         setUsers(usersResponse.data);
       } catch (error) {
         console.error('Erro ao buscar dados:', error);
       }
-    };
+    }
     fetchData();
   }, []);
 
   const getAuthorName = (userId) => {
-    const user = users.find(u => u.id === userId);
+    const user = users.find((u) => u.id === userId);
     return user ? user.name : 'Desconhecido';
   };
 
   return (
     <div>
       <h1>Posts</h1>
-      {blog.map(post => (
+      {posts.map((post) => (
         <div key={post.id} style={{ marginBottom: '20px' }}>
           <Link to={`/post/${post.id}`}>
             <h3>{post.title}</h3>
