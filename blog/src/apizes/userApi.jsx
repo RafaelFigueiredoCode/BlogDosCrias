@@ -1,9 +1,7 @@
-export const fetchUsers = async () => {
-  const res = await fetch('https://jsonplaceholder.typicode.com/users');
-  return res.json();
-};
+import axios from 'axios';
 
-export const fetchUserById = async (id) => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
-  return res.json();
-};
+const api = axios.create({
+  baseURL: 'https://jsonplaceholder.typicode.com',
+});
+
+export default api;
