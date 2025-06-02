@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const userapi = axios.create({
+const userApi = axios.create({
   baseURL: 'https://jsonplaceholder.typicode.com',
 });
 
-export default userapi;
+export default userApi;
