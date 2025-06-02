@@ -43,4 +43,3 @@ return (
 }
 
 export default Home;  
-
