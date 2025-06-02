@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import userApi from '../apizes/userApi';   
 import postApi from '../apizes/postApi';
+import "../styles/home.css"
 
 
 function Home() {
@@ -28,17 +29,17 @@ function Home() {
   };
 
   return (
-    <div>
-      <h1>Posts</h1>
+  <div className="container">
+    <h1>Posts</h1>
+    <div className="posts-grid">
       {posts.map((post) => (
-        <div key={post.id} style={{ marginBottom: '20px' }}>
-          <Link to={`/post/${post.id}`}>
-            <h3>{post.title}</h3>
-          </Link>
+        <Link to={`/post/${post.id}`} key={post.id} className="post-card">
+          <h3>{post.title}</h3>
           <p>Autor: {getAuthorName(post.userId)}</p>
-        </div>
+        </Link>
       ))}
     </div>
+  </div>
   );
 }
 
