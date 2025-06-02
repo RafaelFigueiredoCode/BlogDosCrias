@@ -1,6 +1,4 @@
 import {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
-
-return {
-    
-}
+import postApi from '../apizes/postApi';
+import userapi from '../apizes/userApi';
