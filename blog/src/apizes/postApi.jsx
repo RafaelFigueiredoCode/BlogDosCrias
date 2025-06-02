@@ -4,4 +4,4 @@ const postApi = axios.create({
   baseURL: 'https://jsonplaceholder.typicode.com'
 });
 
-export default postApi
+export default postApi;

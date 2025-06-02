@@ -1,34 +1,46 @@
-import {useState, useEffect} from 'react'
-import { useNavigate } from 'react-router-dom';
-import userApi from './apizes/userApi.jsx'
-import postApi from './apizes/postApi.jsx'
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import userApi from '../apizes/userApi';   // pra usuários
+import postApi from '../apizes/postApi';   // pra posts
 
+function Home() {
+  const [blog, setBlog] = useState([]); // já inicializa como array
+  const [users, setUsers] = useState([]);
 
-function Home(){
-
-const [blog, setBlog] = useState()
-const navigate = useNavigate()
-
-
-useEffect(() => {
-    const fetchBlog = async () => {
+  useEffect(() => {
+    const fetchData = async () => {
       try {
-        const response = await postApi.get('/post');
-        setBlog(response.data.results);
+        // Atenção: JSONPlaceholder usa endpoint '/posts' e '/users' (no plural)
+        const postsResponse = await postApi.get('/posts');
+        const usersResponse = await userApi.get('/users');
+
+        setBlog(postsResponse.data);
+        setUsers(usersResponse.data);
       } catch (error) {
-        console.error('Erro ao buscar posts:', error);
+        console.error('Erro ao buscar dados:', error);
       }
     };
-    fetchBlog();
+    fetchData();
   }, []);
 
-  return {
+  const getAuthorName = (userId) => {
+    const user = users.find(u => u.id === userId);
+    return user ? user.name : 'Desconhecido';
+  };
 
-    
-
-
-  }
-
+  return (
+    <div>
+      <h1>Posts</h1>
+      {blog.map(post => (
+        <div key={post.id} style={{ marginBottom: '20px' }}>
+          <Link to={`/post/${post.id}`}>
+            <h3>{post.title}</h3>
+          </Link>
+          <p>Autor: {getAuthorName(post.userId)}</p>
+        </div>
+      ))}
+    </div>
+  );
 }
 
-export default Home
+export default Home;
