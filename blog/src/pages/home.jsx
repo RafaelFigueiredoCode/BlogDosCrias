@@ -5,12 +5,13 @@ import postApi from '../apizes/postApi';
 import "../styles/home.css";
 
 function Home() {
-  const [posts, setPosts] = useState([]); 
+  const [blog, setBlog] = useState([]); // já inicializa como array
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
+        // Atenção: JSONPlaceholder usa endpoint '/posts' e '/users' (no plural)
         const postsResponse = await postApi.get('/posts');
         const usersResponse = await userApi.get('/users');
         setPosts(postsResponse.data);
