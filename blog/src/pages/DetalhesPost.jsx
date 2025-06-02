@@ -10,7 +10,7 @@ function DetalhesPost() {
 
   useEffect(() => {
     async function fetchData() {
-      const postRes = await userApi.get(`/posts/${id}`);
+      const postRes = await postApi.get(`/posts/${id}`);
       setPost(postRes.data);
 
       const userRes = await userApi.get(`/users/${postRes.data.userId}`);
